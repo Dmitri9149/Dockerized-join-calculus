@@ -1,5 +1,5 @@
 
-### Dockerised environment for join calculus 
+### Dockerized environment for join calculus 
 
 Join calculus and JOCaml language based on it are very suitable for some modelling parallel and distributed processes. See the description/tutorial/installation instructions for the language at : http://jocaml.inria.fr/doc/index.html
 
