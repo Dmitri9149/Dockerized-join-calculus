@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 RUN ln -sf /bin/bash /bin/sh
-RUN useradd -ms /bin/bash  join
+## RUN useradd -ms /bin/bash  join 
 WORKDIR /home/join/JoCaml_files
 RUN apt-get update && apt-get install -y apt-utils
 RUN apt-get update && apt-get install -y libpthread-stubs0-dev
@@ -12,10 +12,22 @@ RUN ls
 RUN apt-get update && apt-get install build-essential -y
 RUN gcc --version
 RUN ./configure
-RUN make world
+RUN make world 
 RUN make bootstrap
 RUN make opt
 RUN make opt.opt
 RUN umask 022
 RUN make install
 RUN make clean
+
+RUN apt-get update && apt-get install sudo
+WORKDIR /home/join
+RUN addgroup --system group
+RUN adduser --disabled-password --system join  && \
+    adduser join group
+RUN chown --recursive join:group /home/join
+
+USER join
+
+
+CMD ["/bin/bash"]
