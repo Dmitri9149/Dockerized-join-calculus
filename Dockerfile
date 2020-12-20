@@ -23,7 +23,7 @@ COPY --from=origin /usr/. /usr/
 ## COPY --from=origin /sbin/. /sbin/
 ## COPY --from=origin /bin/. /bin/
 WORKDIR /home/join
-RUN apt-get update && apt-get install -y vim sudo && \
+RUN apt-get update && apt-get install -y vim && \
     addgroup --system group && \
     adduser --disabled-password --system join  && \
     adduser join group && \
