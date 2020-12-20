@@ -7,7 +7,6 @@ RUN ln -sf /bin/bash /bin/sh && \
     tar -xf jocaml-4.01.0.tar.gz && \
     rm /home/join/JoCaml_files/jocaml-4.01.0.tar.gz && \
     apt-get autoremove --purge -y wget 
-##    apt-get update && apt-get install -y build-essential 
 WORKDIR /home/join/JoCaml_files/jocaml-4.01.0
 RUN gcc --version && \
     ./configure && \
@@ -21,7 +20,6 @@ RUN gcc --version && \
 
 
 FROM ubuntu:16.04
-## COPY --from=origin /home/. /home/
 COPY --from=origin /usr/. /usr/
 ## COPY --from=origin /sbin/. /sbin/
 ## COPY --from=origin /bin/. /bin/
